@@ -165,25 +165,29 @@
         <!-- RIGHT COLUMN -->
 
         <div class="grid_4 omega">
-            <div class="grid_12 blog-card">
-                <div class="padding30box">
-                    <span class="blog-card-title">How to write proposals like Leo Messi</span>
-                    <span class="blog-card-subtitle">This is a sub description about the article. I don't know what it says yet or how long it should be. It's really hard to tell. </span>
-                </div>
-            </div>
+            <?php
 
-            <div class="grid_12 blog-card">
-                <div class="padding30box">
-                    <span class="blog-card-title">How to follow up like the People's Champion</span>
-                    <span class="blog-card-subtitle">This is a sub description about the article. I don't know what it says yet or how long it should be. It's really hard to tell. </span>		</div>
-            </div>
+            // The Query
+            $the_query = new WP_Query(['posts_per_page' => 4]);
 
-            <div class="grid_12 omega blog-card">
-                <div class="padding30box">
-                    <span class="blog-card-title">Selling Bananas in Jamaica</span>
-                    <span class="blog-card-subtitle">This is a sub description about the article. I don't know what it says yet or how long it should be. It's really hard to tell. </span>
-                </div>
-            </div>
+            // The Loop
+            if ( $the_query->have_posts() ) {
+                $the_query->the_post();
+                while ($the_query->have_posts()) {
+                    $the_query->the_post();
+                    ?>
+
+                    <div class="grid_12 blog-card">
+                        <div class="padding30box">
+                            <span class="blog-card-title"><?php echo get_the_title() ?></span>
+                            <span class="blog-card-subtitle">This is a sub description about the article. I don't know what it says yet or how long it should be. It's really hard to tell. </span>
+                        </div>
+                    </div>
+
+                    <?php
+                }
+            }
+            ?>
         </div> <!-- end grid 8 -->
 
     </div> <!-- end padding 60 -->
