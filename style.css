@@ -1,0 +1,251 @@
+/*
+Theme Name: Betprop
+Theme URI: http://wordpress.org/themes/betprop
+Author: Marta Beveridge <marta@beveridge.uk>
+Author URI: https://martabeveridge.uk
+Description: Custom theme for Better Proposals Blog
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: blog
+Text Domain: betprop
+
+Memento moris.
+*/
+
+@charset "UTF-8";
+/* CSS Document */
+
+/* TYPOGRAPHY */
+
+h1 {
+    font-family: "grad",serif;
+    font-size: 55px;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: normal;
+    line-height: 1.2em;
+}
+h2 {
+    font-family: "sofia-pro",sans-serif;
+    font-size: 2.7em;
+    font-style: normal;
+    font-weight: 200;
+    letter-spacing: normal;
+    line-height: 1.2em;
+}
+h3 {
+    font-family: "sofia-pro",sans-serif;
+    font-size: 2em;
+    font-style: normal;
+    font-weight: 200;
+    letter-spacing: normal;
+    line-height: 1.2em;
+}
+.subhead {
+    font-family: "sofia-pro",sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 200;
+    letter-spacing: normal;
+    line-height: 1.5em;
+    text-transform: none;
+    color: #FFF;
+}
+.author {
+    font-family: "sofia-pro",sans-serif;
+    font-size: 1em;
+    font-style: normal;
+    font-weight: 200;
+    letter-spacing: normal;
+    line-height: 1.5em;
+    text-transform: none;
+    color: #FFF;
+    opacity:0.7;
+}
+.body-copy {
+    font-family: "sofia-pro",sans-serif;
+    letter-spacing: 0.02em;
+    font-weight: 400;
+    font-size: 1.2em;
+    color: #333;
+}
+.noul { text-decoration: none !important }
+.light { color: #FFF !important }
+.dark { color: #000 !important }
+
+
+/* ANIMATION */
+
+
+/* Keyframes for the fade-in */
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+.fade-in {
+    opacity:0;
+    opacity: 1 \9; /*just in case ie*/
+    -webkit-animation:fadeIn ease-in 1;
+    -moz-animation:fadeIn ease-in 1;
+    animation:fadeIn ease-in 1;
+
+    -webkit-animation-fill-mode:forwards;
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+
+    -webkit-animation-duration:1s;
+    -moz-animation-duration:1s;
+    animation-duration:1s;
+}
+
+.fade-in.one {
+    -webkit-animation-delay: 0.8s;
+    -moz-animation-delay: 0.8s;
+    animation-delay: 0.8s;
+}
+
+
+
+/* LAYOUT */
+
+
+
+.fullpage {
+    min-height: 100vh;
+    margin-bottom: 60px;
+
+    background: linear-gradient(45deg, rgba(72,80,89,0.75) 0%, rgba(40,43,48,0.95) 100%), url(https://images.unsplash.com/photo-1464817739973-0128fe77aaa1?auto=format&fit=crop&w=2100&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D);
+
+    background-repeat: repeat-y, no-repeat;
+    background-size: auto, cover;
+    background-position: left, top;
+}
+
+.cta {
+    color: #fff;
+    background: -moz-linear-gradient(45deg, rgba(0,233,219,0.5) 0%, rgba(91,121,237,0.5) 100%);
+    background: -webkit-linear-gradient(45deg,  #00E9DB 0%,#5B79ED 100%);
+    background: linear-gradient(45deg,  #00E9DB 0%,#5B79ED 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00E9DB', endColorstr='#5B79ED',GradientType=1 );
+    margin-bottom: 60px;
+}
+.start-reading {
+    margin: 40px 0 60px 0;
+    padding: 15px;
+    width: 240px;
+    border: 2px solid #FFF;
+    color: #FFF;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "sofia-pro", sans-serif;
+    font-weight: 700;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+}
+.start-reading:hover { background-color: #FFF; color: #000 }
+.start-reading:active { opacity: 0.3 }
+
+.blog-card {
+    border: 1px solid #D9DADD;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+    margin-bottom: 30px;
+}
+.blog-card:hover { border: 1px solid #BEC3C7; opacity: 1 }
+.blog-card.big { font-size: 1.5em }
+
+.blog-card-image {
+    height: 200px;
+    background: url(https://images.unsplash.com/photo-1464817739973-0128fe77aaa1?auto=format&fit=crop&w=2100&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D) no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.blog-card-image.big {
+    height: 500px;
+}
+.blog-card-title {
+    font-family: "grad",serif;
+    font-size: 1.6em;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: normal;
+    line-height: 1.2em;
+    display: block;
+    margin-bottom: 20px;
+    color: #000;
+}
+.blog-card-subtitle {
+    font-family: "sofia-pro",sans-serif;
+    font-size: 1em;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 1.2em;
+    color: #444;
+}
+hr {
+    width: 100%;
+    height: 20px;
+}
+.category-card {
+    height: 300px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px; /* future proofing */
+    -khtml-border-radius: 10px; /* for old Konqueror browsers */
+}
+
+
+
+/* COLOURS */
+
+.bg-aqua {
+    color: #fff;
+    background: -moz-linear-gradient(45deg,  #00E9DB 0%, #5B79ED 100%);
+    background: -webkit-linear-gradient(45deg,  #00E9DB 0%,#5B79ED 100%);
+    background: linear-gradient(45deg,  #00E9DB 0%,#5B79ED 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00E9DB', endColorstr='#5B79ED',GradientType=1 );
+}
+
+.bg-nature {
+    color: #fff;
+    background: -moz-linear-gradient(45deg,  #26DF98 0%, #25B0B3 100%);
+    background: -webkit-linear-gradient(45deg,  #26DF98 0%,#25B0B3 100%);
+    background: linear-gradient(45deg,  #26DF98 0%,#25B0B3 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#26DF98', endColorstr='#25B0B3',GradientType=1 );
+}
+
+.bg-fire {
+    color: #fff;
+    background: -moz-linear-gradient(45deg,  #FF7474 0%, #F74CA0 100%);
+    background: -webkit-linear-gradient(45deg,  #FF7474 0%,#F74CA0 100%);
+    background: linear-gradient(45deg,  #FF7474 0%,#F74CA0 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FF7474', endColorstr='#F74CA0',GradientType=1 );
+}
+
+.bg-partylights {
+    color: #fff;
+    background: -moz-linear-gradient(45deg,  #ED29C5 0%, #6191ED 100%);
+    background: -webkit-linear-gradient(45deg,  #ED29C5 0%,#6191ED 100%);
+    background: linear-gradient(45deg,  #ED29C5 0%,#6191ED 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ED29C5', endColorstr='#6191ED',GradientType=1 );
+}
+
+.bg-midnight {
+    color: #fff;
+    background: -moz-linear-gradient(45deg,  #592880 0%, #15B1CF 100%);
+    background: -webkit-linear-gradient(45deg,  #592880 0%,#15B1CF 100%);
+    background: linear-gradient(45deg,  #592880 0%,#15B1CF 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#592880', endColorstr='#15B1CF',GradientType=1 );
+}
+
+.bg-peaches {
+    color: #fff;
+    background: -moz-linear-gradient(45deg,  #FBD383 0%, #F5837F 100%);
+    background: -webkit-linear-gradient(45deg,  #FBD383 0%,#F5837F 100%);
+    background: linear-gradient(45deg,  #FBD383 0%,#F5837F 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FBD383', endColorstr='#F5837F',GradientType=1 );
+}
