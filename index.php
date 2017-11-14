@@ -5,7 +5,8 @@
  * Date: 12/11/2017
  * Time: 13:42
  */
-
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
@@ -43,81 +44,15 @@
 
     <link href="/wp-content/themes/betprop/style.css" rel="stylesheet" type="text/css" />
     <link rel="canonical" href="https://betterproposalstest.martabeveridge.uk" />
-    <<script src="https://use.typekit.net/ivt4obp.js"></script>
+    <script src="https://use.typekit.net/ivt4obp.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
-
-    <style>
-        body { background-color: ##FFF8E2 }
-    </style>
-
 </head>
-
 <body>
-<!-- Piwik -->
-<script type="text/javascript">
-    var _paq = _paq || [];
-    _paq.push(["setDomains", ["*.betterproposals.co.uk"]]);
-    _paq.push(['trackPageView']);
-    _paq.push(['enableLinkTracking']);
-    (function() {
-        var u="//businessautomation.co.uk/analytics/";
-        _paq.push(['setTrackerUrl', u+'piwik.php']);
-        _paq.push(['setSiteId', '2']);
-        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-    })();
-</script>
-<noscript><p><img src="//businessautomation.co.uk/analytics/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
-<!-- End Piwik Code -->
 
-
-<!-- Oribi Analytics -->
-<script type="application/javascript">
-    (function(b, o, n, g, s, r, c) { if (b[s]) return; b[s] = {}; b[s].scriptToken = "XzIyODUyNTY5Mw"; r = o.createElement(n); c = o.getElementsByTagName(n)[0]; r.async = 1; r.src = g; r.id = s + n; c.parentNode.insertBefore(r, c); })(window, document, "script", "//cdn.oribi.io/XzIyODUyNTY5Mw/oribi.js", "ORIBI");
-</script>
 <!-- HEADER AND VALUE PROP SECTION -->
 
 <div class="grid_12 omega cta">
-    <div class="container-header">
-
-        <!-- HEADER - desktop -->
-        <div class="mobile-hide">
-            <div class="grid_2"><a href="/"><div class="header-logo"></div></a></div>
-            <div class="grid_10 omega right">
-                <div class="header-link">
-                    <ul class="header-menu">
-                        <li><a href="/signup"><div class="button header green">Sign up Free</div></a></li>
-                        <li class="header-link"><a href="/2/login">Log in</a></li>
-                        <li class="header-link"><a href="/customers">Customers</a></li>
-                        <li class="header-link"><a href="/free-proposal-templates">Proposal Templates</a></li>
-                        <li class="header-link"><a href="/pricing">Pricing</a></li>
-                        <li class="header-link"><a href="/tour">Tour</a></li>
-                    </ul>
-                </div>
-            </div> <!-- end grid 10omega -->
-        </div> <!-- end mobile-hide -->
-
-        <!-- HEADER - mobile -->
-        <div class="desktop-hide">
-
-            <a href="/"><img src="https://betterproposals.io/img/layout/logo-black.png" class="header-logo" alt="Better Proposals" /></a>
-            <a id="mobile-nav-trigger" href="#"><div class="shownav"></div></a>
-
-            <div id="nav-slider">
-                <div class="mobile-nav">
-                    <ul class="header-menu">
-                        <li class="mobile-nav-link"><a href="/tour">Tour</a></li>
-                        <li class="mobile-nav-link"><a href="/pricing">Pricing</a></li>
-                        <li class="mobile-nav-link"><a href="/free-proposal-templates">Proposal Templates</a></li>
-                        <li class="mobile-nav-link"><a href="/customers">Customers</a></li>
-                        <li class="mobile-nav-link"><a href="/2/login">Log in</a></li>
-                    </ul>
-                </div>
-            </div> <!-- end nav-slider -->
-
-        </div><!-- end desktop-hide -->
-
-    </div> <!-- end container-header -->
+    <?php require __DIR__ . '/header.php'; ?>
     <div class="container">
         <div class="grid_12 omega padding60" style="padding-top: 0">
 
@@ -143,21 +78,20 @@
         if ( $the_query->have_posts() ) {
             while ($the_query->have_posts()) {
                 $the_query->the_post();
-        ?>
+                ?>
 
-        <div class="grid_8">
-            <a href="post">
-                <div class="grid_12 omega blog-card big">
-                    <div class="blog-card-image big"></div>
-                    <div class="padding30box">
-                        <span class="blog-card-title"><?php echo get_the_title() ?></span>
-                        <span class="blog-card-subtitle">This is a sub description about the article. I don't know what it says yet or how long it should be. It's really hard to tell. </span>
-                    </div>
-                </div>
-            </a>
-        </div> <!-- end grid 8 -->
+                <div class="grid_8">
+                    <a href="<?php echo get_permalink( get_the_ID() ) ?>" class="grid_12 omega blog-card big">
+                            <div class="blog-card-image big" style="background-image: url(<?php echo get_the_post_thumbnail_url(get_the_ID(),'full'); ?>"></div>
+                            <div class="padding30box">
+                                <span class="blog-card-title"><?php echo get_the_title() ?></span>
+                                <span class="blog-card-subtitle"><?php echo(get_the_subtitle( get_the_ID(), '', '', false )) ?></span>
+                            </div>
+                        </>
+                    </a>
+                </div> <!-- end grid 8 -->
 
-        <?php
+                <?php
             }
         }
         ?>
@@ -177,12 +111,12 @@
                     $the_query->the_post();
                     ?>
 
-                    <div class="grid_12 blog-card">
+                    <a href="<?php echo get_permalink( get_the_ID() ) ?>" class="grid_12 blog-card">
                         <div class="padding30box">
                             <span class="blog-card-title"><?php echo get_the_title() ?></span>
-                            <span class="blog-card-subtitle">This is a sub description about the article. I don't know what it says yet or how long it should be. It's really hard to tell. </span>
+                            <span class="blog-card-subtitle"><?php echo(get_the_subtitle( get_the_ID(), '', '', false )) ?></span>
                         </div>
-                    </div>
+                    </a>
 
                     <?php
                 }
@@ -205,33 +139,33 @@
 
     <div class="padding60">
 
-        <div class="grid_3 category-card bg-fire">
+        <a href="https://betterproposalstest.martabeveridge.uk/category/proposal-writing-tips/" class="grid_3 category-card bg-fire">
             <div class="padding30box">
                 <h3 style="margin-top: 0">Proposal Writing Tips</h3>
                 <span class="blog-card-subtitle light">Insights, ideas and guides on the art of proposal writing.</span>
             </div>
-        </div>
+        </a>
 
-        <div class="grid_3 category-card bg-nature">
+        <a href="https://betterproposalstest.martabeveridge.uk/category/proposal-breakdown-videos/" class="grid_3 category-card bg-nature">
             <div class="padding30box">
                 <h3 style="margin-top: 0">Proposal Breakdown Videos</h3>
                 <span class="blog-card-subtitle light">8-10 minute live critique of real life proposals.</span>
             </div>
-        </div>
+        </a>
 
-        <div class="grid_3 category-card bg-partylights">
+        <a href="https://betterproposalstest.martabeveridge.uk/category/product-updates/" class="grid_3 category-card bg-partylights">
             <div class="padding30box">
                 <h3 style="margin-top: 0">Product Updates</h3>
                 <span class="blog-card-subtitle light">Learn all about the new Better Proposals features and updates.</span>
             </div>
-        </div>
+        </a>
 
-        <div class="grid_3 category-card omega bg-peaches">
+        <a href="https://betterproposalstest.martabeveridge.uk/category/running-a-business/" class="grid_3 category-card omega bg-peaches">
             <div class="padding30box">
                 <h3 style="margin-top: 0">Running a Business</h3>
                 <span class="blog-card-subtitle light">16 years of running a business teaches you a few things. These are our lessons.</span>
             </div>
-        </div>
+        </a>
 
 
     </div> <!-- end padding60 -->
@@ -247,41 +181,32 @@
 <div class="container">
     <h1 class="dark">More reading...</h1>
 
-    <div class="grid_4 blog-card">
-        <div class="blog-card-image"></div>
-        <div class="padding30box">
-            <span class="blog-card-title">How to write proposals like Leo Messi</span>
-            <span class="blog-card-subtitle">This is a sub description about the article. I don't know what it says yet or how long it should be. It's really hard to tell. </span>
-        </div>
-    </div>
+    <?php
 
-    <div class="grid_4 blog-card">
-        <div class="blog-card-image"></div>
-        <div class="padding30box">
-            <span class="blog-card-title">How to follow up like the People's Champion</span>
-            <span class="blog-card-subtitle">This is a sub description about the article. I don't know what it says yet or how long it should be. It's really hard to tell. </span>
-        </div>
-    </div>
+    // The Query
+    $the_query = new WP_Query(['posts_per_page' => 3]);
 
-    <div class="grid_4 omega blog-card">
-        <div class="blog-card-image"></div>
-        <div class="padding30box">
-            <span class="blog-card-title">Selling Bananas in Jamaica</span>
-            <span class="blog-card-subtitle">This is a sub description about the article. I don't know what it says yet or how long it should be. It's really hard to tell. </span>
-        </div>
-    </div>
+    // The Loop
+    if ( $the_query->have_posts() ) {
+        while ($the_query->have_posts()) {
+            $the_query->the_post();
+            ?>
 
+            <a href="<?php echo get_permalink( get_the_ID() ) ?>" class="grid_4 blog-card">
+                <div class="blog-card-image" style="background-image: url(<?php echo get_the_post_thumbnail_url(get_the_ID(),'full'); ?>"></div>
+                <div class="padding30box">
+                    <span class="blog-card-title"><?php echo get_the_title() ?></span>
+                    <span class="blog-card-subtitle"><?php echo(get_the_subtitle( get_the_ID(), '', '', false )) ?></span>
+                </div>
+            </a>
+
+            <?php
+        }
+    }
+    ?>
 </div> <!-- end container -->
 
-
-<div class="grid_12 omega">
-
-    <hr>
-    <div class="padding30 center" style="opacity: 0.3">
-        <h3 class="dark">betterproposals.io</h3>
-    </div> <!-- end padding90 -->
-
-</div> <!-- end grid 12 --><!-- FOOT -->
+<?php require __DIR__ . '/footer.php'; ?>
 
 <!-- Fonts -->
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" rel="stylesheet">

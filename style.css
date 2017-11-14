@@ -152,12 +152,16 @@ h3 {
     transition: all 0.3s ease;
     margin-bottom: 30px;
 }
+
+.blog-card:nth-child(4) {
+    margin-right: 0;
+}
 .blog-card:hover { border: 1px solid #BEC3C7; opacity: 1 }
 .blog-card.big { font-size: 1.5em }
 
 .blog-card-image {
     height: 200px;
-    background: url(https://images.unsplash.com/photo-1464817739973-0128fe77aaa1?auto=format&fit=crop&w=2100&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D) no-repeat center center;
+    background: white no-repeat center center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -191,6 +195,7 @@ hr {
     height: 20px;
 }
 .category-card {
+    display: block;
     height: 300px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -198,7 +203,12 @@ hr {
     -khtml-border-radius: 10px; /* for old Konqueror browsers */
 }
 
-
+a.category-card, a.blog-card {
+    text-decoration: none !important;
+}
+a span {
+    text-decoration: none !important;
+}
 
 /* COLOURS */
 
