@@ -7,8 +7,14 @@
 
     <?php
 
-    // The Query
-    $the_query = new WP_Query(['posts_per_page' => 3]);
+    $queryParameters = ['posts_per_page' => 3];
+
+    if(isset($categoryForPostQuerySlug))
+    {
+        $queryParameters['category_name'] = $categoryForPostQuerySlug;
+    }
+
+    $the_query = new WP_Query($queryParameters);
 
     // The Loop
     if ( $the_query->have_posts() ) {
@@ -20,7 +26,7 @@
                 <div class="blog-card-image" style="background-image: url(<?php echo get_the_post_thumbnail_url(get_the_ID(),'full'); ?>"></div>
                 <div class="padding30box">
                     <span class="blog-card-title"><?php echo get_the_title() ?></span>
-                    <span class="blog-card-subtitle"><?php echo(get_the_subtitle( get_the_ID(), '', '', false )) ?></span>
+                    <span class="blog-card-subtitle"><?php get_the_subtitle(get_the_ID()) ?></span>
                 </div>
             </a>
 
@@ -98,4 +104,8 @@
 <!-- End Facebook Pixel Code -->
 
 <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"d190a70136","applicationID":"82509464","transactionName":"NQZTYEVYCxBQVEENWAxMZEZeFgcPXlBqClIVTFhaU1wdTUFfRQ==","queueTime":0,"applicationTime":1,"atts":"GUFQFg1CGB4=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+<script>
+    var scroll = new SmoothScroll('a[href*="#"]');
+</script>
+
 </html>

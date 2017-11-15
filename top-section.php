@@ -36,5 +36,7 @@
     <link rel="canonical" href="https://betterproposalstest.martabeveridge.uk" />
     <script src="https://use.typekit.net/ivt4obp.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scroll/12.1.5/js/smooth-scroll.min.js"></script>
 </head>
 <body>

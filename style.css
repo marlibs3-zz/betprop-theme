@@ -74,6 +74,11 @@ h3 {
 .light { color: #FFF !important }
 .dark { color: #000 !important }
 
+.body-copy h2 {
+    color: #000;
+    margin: 0 0 1em 0;
+    font-size: 1.5em;
+}
 
 /* ANIMATION */
 
@@ -113,9 +118,6 @@ h3 {
 
 .fullpage {
     min-height: 100vh;
-    margin-bottom: 60px;
-
-    background: linear-gradient(45deg, rgba(72,80,89,0.75) 0%, rgba(40,43,48,0.95) 100%), url(https://images.unsplash.com/photo-1464817739973-0128fe77aaa1?auto=format&fit=crop&w=2100&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D);
 
     background-repeat: repeat-y, no-repeat;
     background-size: auto, cover;

@@ -56,7 +56,7 @@ switch ($categorySlug) {
                             <div class="blog-card-image" style="background-image: url(<?php echo get_the_post_thumbnail_url(get_the_ID(),'full'); ?>"></div>
                             <div class="padding30box">
                                 <span class="blog-card-title"><?php echo get_the_title() ?></span>
-                                <span class="blog-card-subtitle"><?php echo(get_the_subtitle( get_the_ID(), '', '', false )) ?> </span>
+                                <span class="blog-card-subtitle"><?php get_the_subtitle(get_the_ID()) ?> </span>
                             </div>
                         </div></a>
                     <?php
