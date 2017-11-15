@@ -31,7 +31,7 @@
     <script type="text/javascript">
         (function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src='https://cdn.firstpromoter.com/fprom.js',t.onload=t.onreadystatechange=function(){var t=this.readyState;if(!t||"complete"==t||"loaded"==t)try{$FPROM.init("d83zlqh9",".betterproposals.io")}catch(t){}};var e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(t,e)})();</script>
 
-    <link href="/wp-content/themes/betprop/style.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo get_stylesheet_directory_uri() ?>/style.css" rel="stylesheet" type="text/css" />
     <link rel="canonical" href="https://betterproposalstest.martabeveridge.uk" />
     <script src="https://use.typekit.net/ivt4obp.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
