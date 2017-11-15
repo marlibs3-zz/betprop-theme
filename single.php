@@ -1,10 +1,21 @@
 <?php
-require 'top-section.php';
-?>
+/**
+ * The template for displaying all single posts
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
+ *
+ * @package BetProp
+ * @since 1.0
+ * @version 1.0
+ */
+
+get_header(); ?>
+
     <!-- HEADER AND VALUE PROP SECTION -->
 
-    <div class="grid_12 omega fullpage" style="background: linear-gradient(45deg, rgba(72,80,89,0.75) 0%, rgba(40,43,48,0.95) 100%), url(<?php echo get_the_post_thumbnail_url(get_the_ID(),'full'); ?>">
-        <?php require 'header.php' ?>
+    <div class="grid_12 omega fullpage"
+         style="background-image: linear-gradient(45deg, rgba(72,80,89,0.75) 0%, rgba(40,43,48,0.95) 100%), url(<?php echo get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>">
+        <?php require 'header-content.php' ?>
         <div class="container-small">
             <div class="grid_12 omega padding60">
 
@@ -49,4 +60,5 @@ require 'top-section.php';
 <?php
 $categoryObjectForThisPost = get_the_category()[0];
 $categoryForPostQuerySlug = $categoryObjectForThisPost->slug;
-require 'lower-section.php';
+
+require 'footer.php';
