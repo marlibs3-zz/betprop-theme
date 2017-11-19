@@ -8,7 +8,7 @@
 
             <?php
 
-            $queryParameters = ['posts_per_page' => 3, 'order' => 'ASC'];
+            $queryParameters = ['posts_per_page' => 3, 'orderby' => 'rand'];
 
             if(isset($categoryForPostQuerySlug))
             {
