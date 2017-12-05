@@ -7,8 +7,11 @@
             <h1 class="dark">More reading...</h1>
 
             <?php
-
-            $queryParameters = ['posts_per_page' => 3, 'orderby' => 'rand'];
+            if (is_front_page()) {
+                $queryParameters = ['posts_per_page' => 3, 'order' => 'ASC', 'offset' => 4];
+            } else {
+                $queryParameters = ['posts_per_page' => 3, 'orderby' => 'rand'];
+            }
 
             if(isset($categoryForPostQuerySlug))
             {
